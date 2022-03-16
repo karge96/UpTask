@@ -1,0 +1,60 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.barra-mobile {
+    background-color: v.$indigo;
+    padding: 2rem 4rem;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    @media (max-width:350px){
+        h1{
+            font-size: 4rem;
+        }
+    }
+    @include m.tablet {
+        display: none;
+    }
+    h1 {
+        color: v.$blanco!important;
+        margin: 0;
+    }
+    .menu {
+        img {
+            width: .9rem;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.barra {
+    display: none;
+    height: 7rem;
+    @include m.tablet {
+        background-color: v.$blanco;
+        padding: 1rem 2rem;
+        box-shadow: 2px 12px 9px -13px rgba( 0 , 0 , 0, .5);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    p {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: bolder;
+        span {
+            font-weight: 700;
+            color: v.$indigo;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+    }
+    .cerrar-sesion {
+        @include m.boton( darken(v.$indigo, 20%), v.$blanco );
+        font-size: 1.3rem;
+        padding: 1.2rem;
+        border-radius: .5rem;
+    }
+}
